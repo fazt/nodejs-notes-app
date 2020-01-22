@@ -1,7 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const mongoose = require('mongoose');
 const User = require('../models/User'); 
 
 passport.use(new LocalStrategy({
@@ -20,7 +19,6 @@ passport.use(new LocalStrategy({
       return done(null, false, { message: 'Incorrect Password.' });
     }
   }
-
 }));
 
 passport.serializeUser((user, done) => {
