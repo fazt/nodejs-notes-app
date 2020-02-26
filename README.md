@@ -15,7 +15,10 @@ This app needs the following environment Variables
 
 # Tutorial
 This app was created with educational purposes, so you can found the tutorials on the following links:
-* [Updated tutorial](https://wwww.faztweb.com)
+* [Updated tutorial](https://www.faztweb.com)
+
+new tutorial made in 2020
+* [Version 2](https://www.youtube.com/playlist?list=PLo5lAe9kQrwqUEXK7oQbzv63KsdODzuAy)
 
 and these are old tutorials about this app
 * [Version 1.0.0](https://youtu.be/-bI0diefasA)
