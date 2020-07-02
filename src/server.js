@@ -6,6 +6,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const morgan = require('morgan');
+const connectMongo = require('connect-mongo');
+const mongoose = require('mongoose');
 
 // Initializations
 const app = express();
@@ -26,10 +28,12 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+const MongoStore = connectMongo(session);
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 app.use(passport.initialize());
 app.use(passport.session());
