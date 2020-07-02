@@ -14,17 +14,18 @@
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "express-session": "^1.17.0",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.8.9",
+    "mongoose": "^5.9.21",
+    "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "handlebars": "^4.5.0",
-    "nodemon": "^2.0.2",
-    "npm-check-updates": "^4.0.1"
+    "handlebars": "^4.7.6",
+    "nodemon": "^2.0.4",
+    "npm-check-updates": "^7.0.1"
   }
 }
