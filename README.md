@@ -9,14 +9,20 @@ This app can:
 
 # Environment Variables
 This app needs the following environment Variables
-* `NOTES_APP_MONGODB_HOST` this is the Mongodb URI string
-* `NOTES_APP_MONGODB_DATABASE` Mongodb database name
+* `MONGODB_HOST` this is the Mongodb URI string
+* `MONGODB_DATABASE` Mongodb database name
 * `NODE_ENV` node environment
 
 # Docker
+you can run a container for development
 ```
-docker-compose up
+npm install 
+docker-compose up 
 ```
+
+# Recursos
+* [Materia Bootswatch](https://www.bootstrapcdn.com/bootswatch/)
+* [CSS Background uiGradients](https://uigradients.com/#Dull)
 
 # Tutorial
 This app was created with educational purposes, so you can found the tutorials in the following links:
