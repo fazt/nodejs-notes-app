@@ -64,4 +64,8 @@ app.use(require("./routes/notes.routes"));
 // static files
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use((req, res) => {
+  res.render("404");
+});
+
 module.exports = app;
