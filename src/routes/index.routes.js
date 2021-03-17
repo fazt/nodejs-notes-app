@@ -1,10 +1,9 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+import { renderIndex, renderAbout } from "../controllers/index.controller";
 
-// Controllers
-const { renderIndex, renderAbout } = require("../controllers/index.controller");
+const router = Router();
 
 router.get("/", renderIndex);
 router.get("/about", renderAbout);
 
-module.exports = router;
+export default router;

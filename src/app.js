@@ -1,23 +1,27 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
-const path = require("path");
-const methodOverride = require("method-override");
-const session = require("express-session");
-const flash = require("connect-flash");
-const passport = require("passport");
-const morgan = require("morgan");
-const connectMongo = require("connect-mongo");
-const mongoose = require("mongoose");
+import express from "express";
+import exphbs from "express-handlebars";
+import path from "path";
+import session from "express-session";
+import methodOverride from "method-override";
+import flash from "connect-flash";
+import passport from "passport";
+import morgan from "morgan";
+import MongoStore from "connect-mongo";
 
-const { createAdminUser } = require("./libs/createUser");
+import { createAdminUser } from "./libs/createUser";
+import config from "./config";
+
+import indexRoutes from "./routes/index.routes";
+import notesRoutes from "./routes/notes.routes";
+import userRoutes from "./routes/users.routes";
+import "./config/passport";
 
 // Initializations
 const app = express();
-require("./config/passport");
 createAdminUser();
 
 // settings
-app.set("port", process.env.PORT || 4000);
+app.set("port", config.PORT);
 app.set("views", path.join(__dirname, "views"));
 app.engine(
   ".hbs",
@@ -34,13 +38,12 @@ app.set("view engine", ".hbs");
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-const MongoStore = connectMongo(session);
 app.use(
   session({
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: MongoStore.create({ mongoUrl: config.MONGODB_URI }),
   })
 );
 app.use(passport.initialize());
@@ -57,9 +60,9 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use(require("./routes/index.routes"));
-app.use(require("./routes/users.routes"));
-app.use(require("./routes/notes.routes"));
+app.use(indexRoutes);
+app.use(userRoutes);
+app.use(notesRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));
@@ -68,4 +71,4 @@ app.use((req, res) => {
   res.render("404");
 });
 
-module.exports = app;
+export default app;

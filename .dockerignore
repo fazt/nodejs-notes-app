@@ -7,3 +7,5 @@ docs
 
 # Environemnt variables
 .env
+
+dist

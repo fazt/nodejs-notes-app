@@ -1,23 +1,23 @@
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
 
 const NoteSchema = new Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     user: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
-module.exports = model("Note", NoteSchema);
+export default model("Note", NoteSchema);

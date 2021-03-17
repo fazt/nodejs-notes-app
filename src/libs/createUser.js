@@ -1,6 +1,6 @@
-const User = require("../models/User");
+import User from "../models/User";
 
-const createAdminUser = async () => {
+export const createAdminUser = async () => {
   const userFound = await User.findOne({ email: "admin@localhost" });
 
   if (userFound) return;
@@ -16,5 +16,3 @@ const createAdminUser = async () => {
 
   console.log("Admin user created", admin);
 };
-
-module.exports = { createAdminUser };
