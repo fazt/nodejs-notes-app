@@ -1,10 +1,11 @@
-# Notes App with Node, Mongodb
+# Notes App NodeMongo
 
-This is a basic App to manage simple Notes on the web using Javascript Technologies like Nodejs, Mongodb, and so on.
-This app can:
+This is a basic App to manage simple Notes on the web using Javascript Technologies like Nodejs, Mongodb, and other related technologies.
 
-- create/read/update/delete Notes
-- Allows a user to do log in and save his personal notes
+This app can do:
+
+- CRUD Operations: create/read/update/delete Notes
+- Allows a user to do login and save his personal notes
 
 # Screenshot
 
@@ -29,7 +30,7 @@ docker-compose up
 
 ## Default User
 
-when the appis lauched, this will create an Admin user with the following credentials:
+when the app is lauched, this will create an Admin user with the following credentials:
 
 - email: admin@localhost
 - password: adminpassword
