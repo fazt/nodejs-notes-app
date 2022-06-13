@@ -13,8 +13,7 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      - MONGODB_HOST=mongo
-      - MONGODB_DB=notesdb
+      - MONGODB_URI=mongodb://mongo/notesdb
       - PORT=4000
   mongo:
     container_name: database

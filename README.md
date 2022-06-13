@@ -7,11 +7,23 @@ This app can do:
 - CRUD Operations: create/read/update/delete Notes
 - Allows a user to do login and save his personal notes
 
-# Screenshot
+### Screenshot
 
 ![](docs/screenshot.png)
 
-# Environment Variables
+### Installation
+
+```sh
+git clone https://github.com/FaztTech/nodejs-notes-app
+cd nodejs-notes-app
+npm i
+npm run dev # run in development mode
+npm start # run in production mode
+```
+
+> You need to stablish a MONGODB_URI environment variable in order to connect to Mongodb
+
+### Environment Variables
 
 This app needs the following environment Variables
 
@@ -19,18 +31,28 @@ This app needs the following environment Variables
 - `PORT` the server http port for the application
 - `NODE_ENV` node environment
 
-# Docker
+### docker-compose
 
-you can run a container for development
+The most easy way to install the entire project is using docker-compose:
 
 ```shell
+git clone https://github.com/FaztTech/nodejs-notes-app
+cd nodejs-notes-app
 npm install
 docker-compose up
 ```
 
-## Default User
+### Default User
 
 when the app is lauched, this will create an Admin user with the following credentials:
 
 - email: admin@localhost
 - password: adminpassword
+
+### Tutorial
+
+This app was created with educational purposes, so you can found the tutorials in the following links:
+
+- [Version 2](https://www.youtube.com/playlist?list=PLo5lAe9kQrwqUEXK7oQbzv63KsdODzuAy), new tutorial made in 2020
+  and these are old tutorials about this app
+- [Version 1.0.0](https://youtu.be/-bI0diefasA)
