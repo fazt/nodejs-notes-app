@@ -6,8 +6,8 @@ import {
   renderEditForm,
   updateNote,
   deleteNote,
-} from "../controllers/notes.controller";
-import { isAuthenticated } from "../helpers/auth";
+} from "../controllers/notes.controller.js";
+import { isAuthenticated } from "../helpers/auth.js";
 
 const router = Router();
 

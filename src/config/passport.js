@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 
-import User from "../models/User";
+import User from "../models/User.js";
 
 passport.use(
   new LocalStrategy(
@@ -14,15 +14,14 @@ passport.use(
 
       if (!user) {
         return done(null, false, { message: "Not User found." });
-      } else {
-        // Match Password's User
-        const match = await user.matchPassword(password);
-        if (match) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: "Incorrect Password." });
-        }
       }
+
+      // Match Password's User
+      const isMatch = await user.matchPassword(password);
+      if (!isMatch)
+        return done(null, false, { message: "Incorrect Password." });
+      
+      return done(null, user);
     }
   )
 );

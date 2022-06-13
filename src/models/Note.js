@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const NoteSchema = new Schema(
+const NoteSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -20,4 +20,4 @@ const NoteSchema = new Schema(
   }
 );
 
-export default model("Note", NoteSchema);
+export default mongoose.model("Note", NoteSchema);

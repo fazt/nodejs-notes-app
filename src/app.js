@@ -1,37 +1,37 @@
 import express from "express";
 import exphbs from "express-handlebars";
-import path from "path";
 import session from "express-session";
 import methodOverride from "method-override";
 import flash from "connect-flash";
 import passport from "passport";
 import morgan from "morgan";
 import MongoStore from "connect-mongo";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
-import { createAdminUser } from "./libs/createUser";
-import config from "./config";
+import { MONGODB_URI, PORT } from "./config.js";
 
-import indexRoutes from "./routes/index.routes";
-import notesRoutes from "./routes/notes.routes";
-import userRoutes from "./routes/users.routes";
-import "./config/passport";
+import indexRoutes from "./routes/index.routes.js";
+import notesRoutes from "./routes/notes.routes.js";
+import userRoutes from "./routes/auth.routes.js";
+import "./config/passport.js";
 
 // Initializations
 const app = express();
-createAdminUser();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // settings
-app.set("port", config.PORT);
-app.set("views", path.join(__dirname, "views"));
-app.engine(
-  ".hbs",
-  exphbs({
-    defaultLayout: "main",
-    layoutsDir: path.join(app.get("views"), "layouts"),
-    partialsDir: path.join(app.get("views"), "partials"),
-    extname: ".hbs",
-  })
-);
+app.set("port", PORT);
+app.set("views", join(__dirname, "views"));
+
+// config view engine
+const hbs = exphbs.create({
+  defaultLayout: "main",
+  layoutsDir: join(app.get("views"), "layouts"),
+  partialsDir: join(app.get("views"), "partials"),
+  extname: ".hbs",
+});
+app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
 
 // middlewares
@@ -43,7 +43,7 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: config.MONGODB_URI }),
+    store: MongoStore.create({ mongoUrl: MONGODB_URI }),
   })
 );
 app.use(passport.initialize());
@@ -65,7 +65,7 @@ app.use(userRoutes);
 app.use(notesRoutes);
 
 // static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(join(__dirname, "public")));
 
 app.use((req, res) => {
   res.render("404");
