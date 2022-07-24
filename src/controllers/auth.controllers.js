@@ -3,7 +3,7 @@ import passport from "passport";
 
 export const renderSignUpForm = (req, res) => res.render("auth/signup");
 
-export const singup = async (req, res) => {
+export const signup = async (req, res) => {
   let errors = [];
   const { name, email, password, confirm_password } = req.body;
   if (password !== confirm_password) {
