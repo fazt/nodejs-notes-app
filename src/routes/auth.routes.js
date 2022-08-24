@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   renderSignUpForm,
-  singup,
+  signup,
   renderSigninForm,
   signin,
   logout,
@@ -12,7 +12,7 @@ const router = Router();
 // Routes
 router.get("/auth/signup", renderSignUpForm);
 
-router.post("/auth/signup", singup);
+router.post("/auth/signup", signup);
 
 router.get("/auth/signin", renderSigninForm);
 
