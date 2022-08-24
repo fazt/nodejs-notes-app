@@ -1,9 +1,8 @@
 import app from "./app.js";
-import { connectDB } from "./database.js";
 import { createAdminUser } from "./libs/createUser.js";
+import "./database.js";
 
 async function main() {
-  await connectDB();
   await createAdminUser();
   app.listen(app.get("port"));
 

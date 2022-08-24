@@ -38,7 +38,6 @@ The most easy way to install the entire project is using docker-compose:
 ```shell
 git clone https://github.com/FaztTech/nodejs-notes-app
 cd nodejs-notes-app
-npm install
 docker-compose up
 ```
 
