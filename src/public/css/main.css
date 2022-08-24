@@ -5,3 +5,7 @@ body {
 .logo {
   width: 30%;
 }
+
+.bg-black {
+  background: #090909;
+}

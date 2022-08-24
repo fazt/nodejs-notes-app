@@ -67,8 +67,15 @@ app.use(notesRoutes);
 // static files
 app.use(express.static(join(__dirname, "public")));
 
-app.use((req, res) => {
-  res.render("404");
+app.use((req, res, next) => {
+  return res.status(404).render("404");
+});
+
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.render("error", {
+    error,
+  });
 });
 
 export default app;
