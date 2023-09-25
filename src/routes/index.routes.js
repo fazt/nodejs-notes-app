@@ -9,13 +9,13 @@ router.get("/contact", renderContact);
 const projects = [
     {
       title: "Pokedex",
-      URI: "http://asdasd.com",
+      URI: "https://pokedex-u2jj.onrender.com",
       description: "Pokedex de Pokemon"
     },
     {
-      title: "Proyecto 2",
-      URI: "http://proyecto2.com",
-      description: "Descripción del Proyecto 2"
+      title: "App de la galleta de la fortuna ",
+      URI: "https://galleta.onrender.com",
+      description: "Cuentas con una galleta que te alegreada el dia con tu fortuna"
     },
     // Agrega más proyectos aquí...
   ];
