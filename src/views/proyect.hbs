@@ -1,11 +1,26 @@
-<section class="card">
-  <div class="card-body">
-    <h1>Mis Proyectos</h1>
-    <div id="ProyectRoot">
-            <h1> {{proyect.title}}</h1>
-            <h1> {{proyect.URI}}</h1>
-            <h1> {{proyect.description}}</h1>
-
+<section class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h1>Mis Proyectos</h1>
+        <div id="ProyectRoot">
+          {{#each projects}}
+          <div class="mb-3 card {{ this.bgColor }} {{ this.textColor }}">
+            <div class="card-header">{{ this.header }}</div>
+            <div class="card-body">
+              <h4 class="card-title">{{ this.title }}</h4>
+              <p class="card-text">{{ this.description }}</p>
+              <a class="text-info" href="{{ this.URI }}">Ir al proyecto</a>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      <p>&copy; 2023 Tu Empresa de Software</p>
+    </div>
+  </footer>
