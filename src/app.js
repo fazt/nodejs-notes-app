@@ -12,7 +12,7 @@ import { fileURLToPath } from "url";
 import { MONGODB_URI, PORT } from "./config.js";
 
 import indexRoutes from "./routes/index.routes.js";
-import notesRoutes from "./routes/notes.routes.js";
+//import notesRoutes from "./routes/notes.routes.js";
 import userRoutes from "./routes/auth.routes.js";
 import "./config/passport.js";
 
@@ -37,6 +37,7 @@ app.set("view engine", ".hbs");
 // middlewares
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 app.use(methodOverride("_method"));
 app.use(
   session({
@@ -62,7 +63,7 @@ app.use((req, res, next) => {
 // routes
 app.use(indexRoutes);
 app.use(userRoutes);
-app.use(notesRoutes);
+//app.use(notesRoutes);
 
 // static files
 app.use(express.static(join(__dirname, "public")));
